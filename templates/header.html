@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>
+        {% if request.path == '/' %} Klean Home Page| 
+       {% elif request.path == '/about/' %} AboutUs Page|
+       {% elif request.path == '/service/' %} Services Page|
+       {% elif request.path == '/project/' %} Project Page|
+       {% elif request.path == '/blog/'%} Blog Page| 
+       {% elif request.path == '/blog-details/'%} Blog Details Page| 
+        {% endif %}
+
+    </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/css/style.css" rel="stylesheet">
+    
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 bg-secondary d-none d-lg-block">
+                <a href="" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <h1 class="m-0 display-3 text-primary">Klean</h1>
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <div class="row bg-dark d-none d-lg-flex">
+                    <div class="col-lg-7 text-left text-white">
+                        <div class="h-100 d-inline-flex align-items-center border-right border-primary py-2 px-3">
+                            <i class="fa fa-envelope text-primary mr-2"></i>
+                            <small>info@example.com</small>
+                        </div>
+                        <div class="h-100 d-inline-flex align-items-center py-2 px-2">
+                            <i class="fa fa-phone-alt text-primary mr-2"></i>
+                            <small>+012 345 6789</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-right">
+                        <div class="d-inline-flex align-items-center pr-2">
+                            <a class="text-primary p-2" href="">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="text-primary p-2" href="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="text-primary p-2" href="">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a class="text-primary p-2" href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a class="text-primary p-2" href="">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- {{request.path}}  help to find the current url path -->
+                <nav class="navbar navbar-expand-lg bg-white navbar-light p-0">
+                    <a href="" class="navbar-brand d-block d-lg-none">
+                        <h1 class="m-0 display-4 text-primary">Klean</h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/'%} active {% endif %}">Home</a>
+                            <a href="{% url 'aboutus' %}" class="nav-item nav-link {% if request.path == '/about/'%} active {% endif %}">About</a>
+                            <a href="{% url 'services' %}" class="nav-item nav-link {% if request.path == '/service/'%} active {% endif %} ">Service</a>
+                            <a href="{% url 'project' %}" class="nav-item nav-link {% if request.path == '/project/'%} active {% endif %}">Project</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="{% url 'blog' %}" class="dropdown-item">Latest Blog</a>
+                                    <a href="{% url 'blogDetails' %}" class="dropdown-item">Blog Detail</a>
+                                </div>
+                            </div>
+                            <a href="{% url 'contactUs' %}" class="nav-item nav-link {% if request.path == '/contactUs/'%} active {% endif %}">Contact</a>
+                        </div>
+                        <a href="" class="btn btn-primary mr-3 d-none d-lg-block">Get A Quote</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
